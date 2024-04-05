@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'log'),
+    'default' => env('MAIL_MAILER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,11 +39,11 @@ return [
         'smtp' => [
             'transport' => 'smtp',
             'url' => env('MAIL_URL'),
-            'host' => env('MAIL_HOST', 'smtp.gmail.com'),
-            'port' => env('MAIL_PORT', 465),
-            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME', 'jegcadayona@gmail.com'),
-            'password' => env('MAIL_PASSWORD', 'dztuaoqvajfladis'),
+            'host' => 'smtp.gmail.com',
+            'port' => 465,
+            'encryption' => 'tls',
+            'username' => 'jegcadayona@gmail.com',
+            'password' => 'dztuaoqvajfladis',
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN'),
         ],
