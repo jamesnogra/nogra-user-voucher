@@ -8,7 +8,7 @@
 ## API Calls
 
 ### Create User
-Post request to `http://127.0.0.1:8000/api/users` with payload
+Post request to `http://127.0.0.1:8000/api/users` with payload:
 ```
 {
     "username": "james",
@@ -18,7 +18,7 @@ Post request to `http://127.0.0.1:8000/api/users` with payload
 }
 ```
 
-## Some Information
+## Some Other Information
  - Using Laravel 11
  - This project is running sqlite
  - Mailer is my test gmail account
