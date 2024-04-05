@@ -5,6 +5,19 @@
  - After the installation, run `php artisan serve`
  - In the browser, open the URL `http://127.0.0.1:8000/`
 
+## API Calls
+
+### Create User
+Post request to `http://127.0.0.1:8000/api/users` with payload
+```
+{
+    "username": "james",
+    "first_name": "James",
+    "email": "john@example.com",
+    "password": "password123"
+}
+```
+
 ## Some Information
  - Using Laravel 11
  - This project is running sqlite
