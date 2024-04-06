@@ -53,5 +53,5 @@ GET request to `http://127.0.0.1:8000/api/vouchers?token=dcx1svSWIWKRsBlsdO0g14Z
 
 ## Some Other Information
  - Using Laravel 11 (Requires at least PHP 8.2)
- - This project is running sqlite
+ - This project is running SQLite
  - Mailer is my test gmail account
