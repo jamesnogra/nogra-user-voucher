@@ -1,3 +1,8 @@
+## Project Information/Specification
+ - Using Laravel 11 (Requires at least PHP 8.2)
+ - This project is running SQLite
+ - Mailer is my test gmail account
+
 ## Installation
  - Clone this project `git clone https://github.com/jamesnogra/nogra-user-voucher.git`
  - Go to the directory of this project `cd nogra-user-voucher`
@@ -53,8 +58,3 @@ GET request to `http://127.0.0.1:8000/api/vouchers?token=dcx1svSWIWKRsBlsdO0g14Z
 
 ## Running the test
  - Just run in the command `php artisan test`
-
-## Some Other Information
- - Using Laravel 11 (Requires at least PHP 8.2)
- - This project is running SQLite
- - Mailer is my test gmail account
