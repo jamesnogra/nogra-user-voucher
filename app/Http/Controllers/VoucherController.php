@@ -39,8 +39,6 @@ class VoucherController extends Controller
      */
     public function delete(Request $request)
     {
-        $validatedData = $request->validate(['voucher_code' => 'required']);
-        
         // Validate the paring of user_id and voucher code
         $voucher = Voucher::where('user_id', $request->user_id)
             ->where('code', $request->voucher_code)
