@@ -2,6 +2,10 @@
  - Clone this project `git clone https://github.com/jamesnogra/nogra-user-voucher.git`
  - Go to the directory of this project `cd nogra-user-voucher`
  - Install packages `composer install`
+ - Copy the .env.example `cp .env.example .env`
+ - Open the `.env` file and edit the line `MAIL_MAILER=log` and change it to `MAIL_MAILER=smtp`
+ - Run both commands `php artisan config:clear` and `php artisan config:cache`
+ - Run the migrations `php artisan migrate`
  - After the installation, run `php artisan serve`
  - In the browser, open the URL `http://127.0.0.1:8000/`
 
