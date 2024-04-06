@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Voucher extends Model
 {
@@ -20,17 +21,28 @@ class Voucher extends Model
     ];
 
     /**
-     * Store a new voucher.
+     * Store a new voucher
      *
      * @param int $userId from the id of users table
      * @return Voucher
      */
-    public static function store($userId)
+    public static function store(int $userId)
     {
         return self::create([
             'user_id' => $userId,
-            'code' => self::generateCode()
+            'code' => strtoupper(Str::random(5))
         ]);
+    }
+
+    /**
+     * Counts the number of vouchers a user has
+     *
+     * @param int $userId from the id of users table
+     * @return int
+     */
+    public static function totalVouchers(int $userId)
+    {
+        return self::where('user_id', $userId)->count();
     }
 
     /**
@@ -39,22 +51,5 @@ class Voucher extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    /**
-     * Generate a random code of length n
-     *
-     * @return string
-     */
-    private static function generateCode(int $length=5)
-    {
-        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        $code = '';
-
-        for ($i = 0; $i < $length; $i++) {
-            $code .= $characters[rand(0, strlen($characters) - 1)];
-        }
-
-        return $code;
     }
 }

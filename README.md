@@ -19,7 +19,7 @@ Post request to `http://127.0.0.1:8000/api/user/create` with payload:
 ```
 
 ### Login to Create Token
-Post request to `http://127.0.0.1:8000/api/user/login` with payload
+Post request to `http://127.0.0.1:8000/api/user/login` with payload:
 ```
 {
     "username": "james",
@@ -27,7 +27,15 @@ Post request to `http://127.0.0.1:8000/api/user/login` with payload
 }
 ```
 
+### Creating vouchers
+Post request to `http://127.0.0.1:8000/api/voucher/create` with payload (use the token string response from login):
+```
+{
+    "token": "dcx1svSWIWKRsBlsdO0g14ZMZGxS41v6"
+}
+```
+
 ## Some Other Information
- - Using Laravel 11
+ - Using Laravel 11 (Requires at least PHP 8.2)
  - This project is running sqlite
  - Mailer is my test gmail account
