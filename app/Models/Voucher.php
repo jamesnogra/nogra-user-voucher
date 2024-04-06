@@ -29,7 +29,7 @@ class Voucher extends Model
     {
         return self::create([
             'user_id' => $userId,
-            'code' => self::generateCode(),
+            'code' => self::generateCode()
         ]);
     }
 

@@ -28,7 +28,7 @@ class WelcomeEmail extends Mailable
     {
         return new Envelope(
             from: new Address('jegcadayona@gmail.com', 'Nogra User Voucher Test'),
-            subject: 'Welcome from nogra-user-voucher project',
+            subject: 'Welcome Code From nogra-user-voucher Test Project',
         );
     }
 

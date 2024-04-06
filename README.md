@@ -8,13 +8,22 @@
 ## API Calls
 
 ### Create User
-Post request to `http://127.0.0.1:8000/api/users` with payload:
+Post request to `http://127.0.0.1:8000/api/user/create` with payload:
 ```
 {
     "username": "james",
     "first_name": "James",
-    "email": "john@example.com",
-    "password": "password123"
+    "email": "testemail@yahoo.com",
+    "password": "123456"
+}
+```
+
+### Login to Create Token
+Post request to `http://127.0.0.1:8000/api/user/login` with payload
+```
+{
+    "username": "james",
+    "password": "123456"
 }
 ```
 

@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\UserToken;
 use App\Models\Voucher;
-use Illuminate\Support\Facades\Mail;
 use App\Mail\WelcomeEmail;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
@@ -17,6 +20,18 @@ class UserController extends Controller
     public function index()
     {
         return response()->json(User::with('vouchers')->get(), 201);
+    }
+
+    /**
+     * For testing only to display email format
+     */
+    public function testEmail()
+    {
+        $emailData = [
+            'first_name' => 'James',
+            'code' => 'X5Y7Z'
+        ];
+        return view('emails.welcome-user-code', $emailData);
     }
 
     /**
@@ -48,6 +63,29 @@ class UserController extends Controller
             'message' => 'User created successfully',
             'user' => $user,
             'voucher' => $voucher
-        ], 201);
+        ], Response::HTTP_CREATED);
+    }
+
+    /**
+     * Login and create a login token
+     */
+    public function login(Request $request)
+    {
+        $credentials = $request->only('username', 'password');
+
+        // Login fail
+        if (!Auth::attempt($credentials)) {
+            return response()->json([
+                'error' => 'Unauthorized, incorrect username and/or password'
+            ], Response::HTTP_UNAUTHORIZED);
+        }
+
+        // Store token for this user
+        $userToken = UserToken::store(Auth::user()->id);
+        return response()->json([
+            'token' => $userToken->token,
+            'message' => 'Successfully logged in',
+            'expiry' => $userToken->expiry
+        ], Response::HTTP_OK);
     }
 }
