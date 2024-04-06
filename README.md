@@ -3,10 +3,10 @@
  - Go to the directory of this project `cd nogra-user-voucher`
  - Copy the .env.example `cp .env.example .env`
  - Install packages `composer install`
- - Run the command `php artisan key:generate`
+ - Run the command `php artisan key:generate` to generate an app key
  - Run the migrations `php artisan migrate`
  - After the installation, run `php artisan serve`
- - In the browser, open the URL `http://127.0.0.1:8000/`
+ - In the browser, open the URL `http://127.0.0.1:8000/` to see if the application is working
 
 ## API Calls
 
