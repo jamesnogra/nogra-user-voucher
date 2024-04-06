@@ -13,14 +13,6 @@ class VoucherController extends Controller
     const VOUCHER_COUNT_LIMIT = 10;
 
     /**
-     * For testing only to see all vouchers
-     */
-    public function index()
-    {
-        return response()->json(Voucher::with('user')->get(), 201);
-    }
-
-    /**
      * Create voucher
      */
     public function store(Request $request)

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome from nogra-user-voucher project</title>
     <style>
-        body, table, td, a {
+        body {
             font-family: Arial, sans-serif;
             font-size: 16px;
             line-height: 1.6;

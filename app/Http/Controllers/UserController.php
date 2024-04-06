@@ -15,26 +15,6 @@ use Illuminate\Http\Response;
 class UserController extends Controller
 {
     /**
-     * For testing only to see all users
-     */
-    public function index()
-    {
-        return response()->json(User::with('vouchers')->get(), 201);
-    }
-
-    /**
-     * For testing only to display email format
-     */
-    public function testEmail()
-    {
-        $emailData = [
-            'first_name' => 'James',
-            'code' => 'X5Y7Z'
-        ];
-        return view('emails.welcome-user-code', $emailData);
-    }
-
-    /**
      * Creating user via the POST request
      */
     public function store(Request $request)

@@ -48,6 +48,9 @@ POST request to `http://127.0.0.1:8000/api/voucher/delete` with payload (use the
 ### List of Vouchers by User
 GET request to `http://127.0.0.1:8000/api/vouchers?token=dcx1svSWIWKRsBlsdO0g14ZMZGxS41v6` where token is from the token string response from login
 
+## Running the test
+ - Just run in the command `php artisan test`
+
 ## Some Other Information
  - Using Laravel 11 (Requires at least PHP 8.2)
  - This project is running sqlite
