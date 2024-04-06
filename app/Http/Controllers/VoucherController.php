@@ -25,18 +25,8 @@ class VoucherController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate the incoming request data
-        $validatedData = $request->validate(['token' => 'required']);
-        // Validate the token
-        $userToken = UserToken::validateToken($request->token);
-        if (!$userToken) {
-            return response()->json([
-                'error' => 'Unauthorized, incorrect token'
-            ], Response::HTTP_UNAUTHORIZED);
-        }
-
         // Verify the number of vouchers this user have
-        $totalVouchers = Voucher::totalVouchers($userToken->user_id);
+        $totalVouchers = Voucher::totalVouchers($request->user_id);
         if ($totalVouchers >= self::VOUCHER_COUNT_LIMIT) {
             return response()->json([
                 'error' => 'Too many vouchers created, you have more than ' . self::VOUCHER_COUNT_LIMIT
@@ -44,12 +34,20 @@ class VoucherController extends Controller
         }
         
         // Create a voucher
-        $voucher = Voucher::store($userToken->user_id);
+        $voucher = Voucher::store($request->user_id);
 
         return response()->json([
             'message' => 'Voucher created successfully',
             'voucher' => $voucher->code,
             'totalVouchers' => $totalVouchers + 1
         ], Response::HTTP_CREATED);
+    }
+
+    /**
+     * Lists all the vouchers of a user
+     */
+    public function userVouchers(Request $request)
+    {
+
     }
 }
