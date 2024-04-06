@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Models\Voucher;
-use App\Models\UserToken;
 
 class VoucherController extends Controller
 {
