@@ -48,6 +48,8 @@ class VoucherController extends Controller
      */
     public function userVouchers(Request $request)
     {
-
+        return Voucher::select('code')
+            ->where('user_id', $request->user_id)
+            ->get();
     }
 }

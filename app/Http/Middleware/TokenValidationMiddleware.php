@@ -26,7 +26,7 @@ class TokenValidationMiddleware
                 'error' => 'Unauthorized, incorrect token'
             ], Response::HTTP_UNAUTHORIZED);
         }
-        // Put the token data to $request
+        // Put the user_id to $request
         $request['user_id'] = $userToken->user_id;
 
         return $next($request);
