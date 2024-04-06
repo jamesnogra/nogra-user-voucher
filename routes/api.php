@@ -17,5 +17,7 @@ Route::post('/user/login', [UserController::class, 'login']);
 // Vouchers
 Route::post('/voucher/create', [VoucherController::class, 'store'])
     ->middleware(TokenValidationMiddleware::class);
+Route::post('/voucher/delete', [VoucherController::class, 'delete'])
+    ->middleware(TokenValidationMiddleware::class);
 Route::get('/vouchers', [VoucherController::class, 'userVouchers'])
     ->middleware(TokenValidationMiddleware::class);

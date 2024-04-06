@@ -44,11 +44,35 @@ class VoucherController extends Controller
     }
 
     /**
+     * Deletes a voucher by code
+     */
+    public function delete(Request $request)
+    {
+        $validatedData = $request->validate(['voucher_code' => 'required']);
+        
+        // Validate the paring of user_id and voucher code
+        $voucher = Voucher::where('user_id', $request->user_id)
+            ->where('code', $request->voucher_code)
+            ->first();
+        if (!$voucher) {
+            return response()->json([
+                'error' => 'Voucher code not found for this user',
+            ], Response::HTTP_NOT_FOUND);
+        }
+        
+        // Delete this voucher
+        $voucher->delete();
+        return response()->json([
+            'message' => 'Voucher has been deleted successfully',
+        ], Response::HTTP_CREATED);
+    }
+
+    /**
      * Lists all the vouchers of a user
      */
     public function userVouchers(Request $request)
     {
-        return Voucher::select('code')
+        return Voucher::select('code as voucher_code')
             ->where('user_id', $request->user_id)
             ->get();
     }

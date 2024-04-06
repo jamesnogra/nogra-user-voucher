@@ -27,11 +27,21 @@ POST request to `http://127.0.0.1:8000/api/user/login` with payload:
 }
 ```
 
-### Creating vouchers
+### Creating Vouchers
 POST request to `http://127.0.0.1:8000/api/voucher/create` with payload (use the token string response from login):
 ```
 {
     "token": "dcx1svSWIWKRsBlsdO0g14ZMZGxS41v6"
+}
+```
+
+
+### Deleting Vouchers
+POST request to `http://127.0.0.1:8000/api/voucher/delete` with payload (use the token string response from login):
+```
+{
+    "token": "dcx1svSWIWKRsBlsdO0g14ZMZGxS41v6",
+    "voucher_code": "O20LS"
 }
 ```
 
